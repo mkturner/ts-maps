@@ -3,7 +3,10 @@ import { Company } from "./Company";
 import { CustomMap } from './CustomMap'
 
 function onLoad() {
-  new CustomMap('map');
+  const user = new User();
+  const customMap = new CustomMap('map');
+
+  customMap.addUserMarker(user);
 }
 
 window.addEventListener('load', onLoad);
