@@ -1,14 +1,9 @@
 import { User } from './User' 
 import { Company } from "./Company";
+import { CustomMap } from './CustomMap'
 
 function onLoad() {
-  new google.maps.Map(document.getElementById('map'), {
-    zoom: 1,
-    center: {
-      lat: 0,
-      lng: 0
-    }
-  });
+  new CustomMap('map');
 }
 
 window.addEventListener('load', onLoad);
