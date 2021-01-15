@@ -1,5 +1,11 @@
-import { User }from './User'
-import { Company } from './Company'
+// Instructions to other classes on how to
+// be an argument to `addMarker`
+interface Mappable {
+  location: {
+    lat: number,
+    lng: number
+  }
+}
 
 // limit access to Google API
 export class CustomMap {
@@ -15,7 +21,7 @@ export class CustomMap {
     });
   }
 
-  addMarker(mappable: User | Company): void {
+  addMarker(mappable: Mappable): void {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
@@ -24,14 +30,4 @@ export class CustomMap {
       }
     })
   }
-
-  // addCompanyMarker(company: Company) {
-  //   new google.maps.Marker({
-  //     map: this.googleMap,
-  //     position: {
-  //       lat: company.location.lat,
-  //       lng: company.location.lng
-  //     }
-  //   });
-  // }
 }
