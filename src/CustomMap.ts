@@ -5,6 +5,7 @@ interface Mappable {
     lat: number,
     lng: number
   }
+  markerContent(): string;
 }
 
 // limit access to Google API
@@ -33,9 +34,9 @@ export class CustomMap {
     // add infoWindow to display info when clicked
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: 'Ayo wassup moe?'
+        content: mappable.markerContent();
       });
-      
+
       infoWindow.open(this.googleMap, marker);
     });
   }
