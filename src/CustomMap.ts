@@ -8,8 +8,8 @@ export interface Mappable {
   markerContent(): string;
 }
 
-// limit access to Google API
 export class CustomMap {
+  // limit access to Google API
   private googleMap: google.maps.Map;
 
   constructor(elementID: string) {
