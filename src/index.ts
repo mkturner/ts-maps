@@ -1,7 +1,6 @@
 import { User } from './User' 
 import { Company } from "./Company";
 import { CustomMap } from './CustomMap'
-import { company } from 'faker';
 
 function onLoad() {
   const user = new User();
