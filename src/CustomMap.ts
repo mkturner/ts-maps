@@ -13,7 +13,7 @@ export class CustomMap {
 
   constructor(elementID: string) {
     this.googleMap = new google.maps.Map(document.getElementById(elementID), {
-      zoom: 1,
+      zoom: 2,
       center: {
         lat: 0,
         lng: 0
@@ -22,12 +22,21 @@ export class CustomMap {
   }
 
   addMarker(mappable: Mappable): void {
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
-    })
+    });
+
+    // add infoWindow to display info when clicked
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: 'Ayo wassup moe?'
+      });
+      
+      infoWindow.open(this.googleMap, marker);
+    });
   }
 }
