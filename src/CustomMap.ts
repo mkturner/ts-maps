@@ -1,6 +1,6 @@
 // Instructions to other classes on how to
 // be an argument to `addMarker`
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number,
     lng: number
@@ -34,7 +34,7 @@ export class CustomMap {
     // add infoWindow to display info when clicked
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: mappable.markerContent();
+        content: mappable.markerContent()
       });
 
       infoWindow.open(this.googleMap, marker);
